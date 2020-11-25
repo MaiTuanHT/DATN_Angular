@@ -1,0 +1,27 @@
+<div class="container ">
+    <div class="listbus">
+        <div class="row" *ngFor = "let schedule of listSchedule">
+            <div class="box-search shadow">
+                <div class="image">
+                    <a href="#">
+                        <img src="https://static.vexere.com/c/i/18773/xe-minh-tri-limousine-VeXeRe-oTJxjjw-1000x600.jpeg" alt="">
+                    </a>
+                </div>
+                <div class="info">
+                    <div><h4>Tuyến Đường : {{schedule.busID.routeID.startLocation}} - {{schedule.busID.routeID.stopLocation}}</h4></div>
+                    <div><h4>Ngày đi : {{schedule.date}}-Giờ khởi hành : {{schedule.busID.departureTime}}</h4></div>
+                    <div>Số Ghế: 20/50</div>
+                    <div class="price">
+                        <!-- <span>500.000đ</span> -->
+                        Giá vé: 500.000đ
+                    </div>
+                    <div class="btn-action-book">
+                        <a routerLink="/book-ticket">Đặt vé</a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+    </div>
+    </div>
+    
+</div>

@@ -1,0 +1,32 @@
+<app-search></app-search>
+<section>
+    <div class="container">
+        <div class="title">
+            <h3>Các tuyến xe chính</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-12" *ngFor = "let key of listKey" >
+                <div class="box-items shadow">
+                    <a href="#">
+                        <img src="https://static.vexere.com/c/i/18773/xe-minh-tri-limousine-VeXeRe-oTJxjjw-1000x600.jpeg" alt="">
+                    </a>
+                    <h4>
+                        <a href="#">{{key}}</a>
+                    </h4>
+                </div>
+                 <div class="list-box">
+                    <ul >
+                        <li *ngFor = "let agency of listAgencyRoute[key]">
+                            {{agency.agencyID.nameAgency}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+               
+            </div>
+        </div> -->
+    </div>
+</section>

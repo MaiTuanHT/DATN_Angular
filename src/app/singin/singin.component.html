@@ -1,0 +1,21 @@
+<div class="singin">
+	<div class="w3layoutscontaineragileits">
+		<h2>Login here</h2>
+			<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+				<input type="email" formControlName="email" placeholder="EMAIL" required="">
+				<input type="password" formControlName="password" placeholder="PASSWORD" required="">
+				<!-- <ul class="agileinfotickwthree">
+					<li>
+						<input type="checkbox" id="brand1" value="">
+						<label for="brand1"><span></span>Remember me</label>
+						<a href="#">Forgot password?</a>
+					</li>
+				</ul> -->
+				<div class="aitssendbuttonw3ls">
+					<input type="submit" value="LOGIN">
+					<p> To register new account <span>→</span> <a class="w3_play_icon1" routerLink= "/register"> Click Here</a></p>
+					<div class="clear"></div>
+				</div>
+			</form>
+	</div>
+</div>
