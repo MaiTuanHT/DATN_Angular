@@ -28,18 +28,33 @@ h2{
     font-size: 20px;
 }
 
-li {
+.service li {
     font-size: 20px;
     float: right;
     color: #ddd;
     padding: 0 3px;
 }
 
-li:hover{
+.service li:hover{
     color: #ffd700;
 }
 
-li.selected {
+.service li.selectedS {
+    color: #ffd700;
+}
+
+.quality li {
+    font-size: 20px;
+    float: right;
+    color: #ddd;
+    padding: 0 3px;
+}
+
+.quality li:hover{
+    color: #ffd700;
+}
+
+.quality li.selectedQ {
     color: #ffd700;
 }
 

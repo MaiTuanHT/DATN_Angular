@@ -49,35 +49,35 @@ countStarService(star) {
 }
 
 
-addClassQUality(star) {
+addClassQuality(star) {
    let ab = "";
    for (let i = 0; i < star; i++) {
-     ab = "starId" + i;
-     document.getElementById(ab).classList.add("selected");
+     ab = "starIdQ" + i;
+     document.getElementById(ab).classList.add("selectedQ");
    }
 }
 
 addClassService(star) {
   let ab = "";
   for (let i = 0; i < star; i++) {
-    ab = "starId" + i;
-    document.getElementById(ab).classList.add("selected");
+    ab = "starIdQ" + i;
+    document.getElementById(ab).classList.add("selectedS");
   }
 }
 
 removeClassQuality(star) {
   let ab = "";
   for (let i = star-1; i >= this.selectedValueQulity; i--) {
-    ab = "starId" + i;
-    document.getElementById(ab).classList.remove("selected");
+    ab = "starIdS" + i;
+    document.getElementById(ab).classList.remove("selectedQ");
   }
 }
 
 removeClassSercice(star) {
    let ab = "";
    for (let i = star-1; i >= this.selectedValueService; i--) {
-     ab = "starId" + i;
-     document.getElementById(ab).classList.remove("selected");
+     ab = "starIdS" + i;
+     document.getElementById(ab).classList.remove("selectedS");
    }
 }
  async save() {
