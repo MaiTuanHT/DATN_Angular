@@ -53,7 +53,7 @@ nav {
 }
 
 .nav-main ul li a {
-    color: #000;
+    color: white;
     text-decoration: none;
     font-weight: 500;
     font-size: 20px;
@@ -94,6 +94,15 @@ nav {
 }
 
 .banner .form-search-banner form input {
+    width: 380px;
+    margin: 0 10px;
+    padding: 2px;
+    padding-left: 60px;
+    border: 2px solid #0061c6;
+    height: 40px;
+}
+
+.banner .form-search-banner form select {
     width: 380px;
     margin: 0 10px;
     padding: 2px;
@@ -25446,3 +25455,6 @@ button:focus {
 
 
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

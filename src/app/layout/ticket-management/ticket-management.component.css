@@ -1,0 +1,10 @@
+.banner .form-search-banner form input {
+    /*
+    
+    margin: 0 10px;
+    padding: 2px; */
+    width: 270px;
+    padding-left: 0px;
+    /* border: 2px solid #0061c6;
+    height: 40px; */
+}

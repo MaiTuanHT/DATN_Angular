@@ -1,3 +1,13 @@
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<!-- <script>
+$(document).ready(function(){
+$("app-rate").hide();
+  $("#danhgia").click(function(){
+    $("app-rate").tonggle();
+  });
+});
+</script> -->
+
 <app-search></app-search>
 <section>
     <div class="container">
@@ -23,15 +33,18 @@
                         </div>
                         <p>{{agency.phoneNumber}}</p>
                         <div class="btn-action">
-                            <a [routerLink]="['/buses', agency._id]">Danh sách chuyến</a>
+                            <span> <a [routerLink]="['/buses', agency._id]">Danh sách chuyến</a></span>
+                            <span ><a  class="right" (click) = "openDialog(agency , user)"> Đánh giá</a></span>
+                            <!-- <span> <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)"></button> </span> -->
                         </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
         </div>
-    
-        <div class="row">
+        
+        
+        <!-- <div class="row">
             <div class="col-lg-12">
                 <div class="phantrang">
                     <ul>
@@ -53,7 +66,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 

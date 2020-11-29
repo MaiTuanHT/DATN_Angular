@@ -33,7 +33,7 @@ export class SinginComponent implements OnInit {
       res => {
         this.tokenStorage.saveToken(res.accessToken);
         console.log(res);
-        this.tokenStorage.saveToken(res.token);
+        // this.tokenStorage.saveToken(res.token);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;

@@ -1,37 +1,32 @@
 
 <div class="book-ticket">
-    <form action="">
-        <div class="form-group row">
+    <div></div>
+    <form [formGroup] = "searchForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row" >
             <div class="col-sm-6">
                 <div class="row">
                     <label  class="col-sm-3 col-form-label">Họ Tên</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="ho" value="Mai" readonly>
+                        <input type="text" class="form-control"  [value]="user?.fullName" readonly>
                     </div>
                 </div>
-                <!-- <div class="row space">
-                    <label  class="col-sm-3 col-form-label">Tên</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="ten" value="Tuấn" readonly>
-                    </div>
-                </div> -->
                 <div class="row space">
                     <label  class="col-sm-3 col-form-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="email" value="maivantuan.191196@gmail.com" readonly>
+                        <input type="text" class="form-control"  [value]="user?.email" readonly>
                     </div>
                 </div>
                 <div class="row space">
                     <label  class="col-sm-3 col-form-label">Số ĐT</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="sdt" value="0348721777" >
+                        <input type="text" class="form-control" formControlName = "phone" value="0" >
                     </div>
                 </div>
 
                 <div class="row space">
                     <label  class="col-sm-3 col-form-label">Nhà xe</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="tuyen" value="Đà Nẵng - Hà Tĩnh" readonly>
+                        <input type="text" class="form-control"  value= {{nameGarage}}  readonly>
                     </div>
                 </div>
 
@@ -42,28 +37,28 @@
                 <div class="row">
                     <label  class="col-sm-3 col-form-label">Tuyến</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="nhaxe" value="Dương Hồng" readonly>
+                        <input type="text" class="form-control"  value= {{routeSchedule}}  readonly>
                     </div>
                 </div>
                 
                 <div class="row space">
                     <label  class="col-sm-3 col-form-label">Thời Gian</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="ngay" value="8h - 20/12/2020" readonly>
+                        <input type="text" class="form-control"  value={{time}} readonly>
                     </div>
                 </div>
                 <div class="row space">
                     <label  class="col-sm-3 col-form-label">Số Ghế</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="soghe" value="3" readonly>
+                        <input type="text" class="form-control" formControlName = "seat" value="1" >
                     </div>
                 </div>
-                <div class="row space">
+                <!-- <div class="row space">
                     <label  class="col-sm-3 col-form-label">Tổng Tiền</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="soghe" value="0000000" readonly>
                     </div>
-                </div>
+                </div> -->
             </div>
 
            

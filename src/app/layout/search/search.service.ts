@@ -12,4 +12,7 @@ export class SearchService {
   public GetSchedule(startLocation , stopLocation){
     return this.httpClient.get(`http://localhost:3000/schedules/many/?startLocation=${startLocation}&stopLocation=${stopLocation}`);
   }
+  // public GetAllSchedule(){
+  //   return this.httpClient.get(`http://localhost:3000/schedules`);
+  // }
 }

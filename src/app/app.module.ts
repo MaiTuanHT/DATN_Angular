@@ -25,6 +25,10 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -34,12 +38,15 @@ import { HttpClientModule } from '@angular/common/http';
     HomePageComponent,
     SinginComponent,
     RegisterComponent,
+    // MatDialogModule,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthService,
     authInterceptorProviders
