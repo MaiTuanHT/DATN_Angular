@@ -27,6 +27,7 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterAgencyComponent } from './register-agency/register-agency.component';
 
 // import {MatDialogModule} from "@angular/material/dialog";
 
@@ -38,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomePageComponent,
     SinginComponent,
     RegisterComponent,
+    RegisterAgencyComponent,
     // MatDialogModule,
   ],
   imports: [

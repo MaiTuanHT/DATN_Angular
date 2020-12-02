@@ -1,14 +1,14 @@
 <div class="register">
-	<div class="w3layoutscontaineragileits">
-		<h2>Register here</h2>
-			<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                <input type="text" formControlName="fullName" placeholder="FULLNAME" required="">
-                <input type="email" formControlName="email" placeholder="EMAIL" required="">
-                <input type="text" formControlName="phoneNumber" placeholder="PHONENUMBER" required="">
-                <input type="password" formControlName="password" placeholder="PASSWORD" required="">
-				<div class="aitssendbuttonw3ls">
-					<input type="submit" value="REGISTER">
-				</div>
-			</form>
-	</div>
+    <div class="w3layoutscontaineragileits">
+        <h2>Register here</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <input type="text" formControlName="fullName" placeholder="FULLNAME" required="">
+            <input type="email" formControlName="email" placeholder="EMAIL" required="">
+            <input type="text" formControlName="phoneNumber" placeholder="PHONENUMBER" required="">
+            <input type="password" formControlName="password" placeholder="PASSWORD" required="">
+            <div class="aitssendbuttonw3ls">
+                <input type="submit" value="REGISTER">
+            </div>
+        </form>
+    </div>
 </div>

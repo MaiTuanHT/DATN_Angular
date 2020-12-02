@@ -10,7 +10,7 @@ import {AuthService} from '../services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm = new FormGroup({
+    registerForm = new FormGroup({
     fullName : new FormControl(''),
     email : new FormControl(''),
     phoneNumber : new FormControl(''),
@@ -20,7 +20,8 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService , private router : Router,private fb: FormBuilder) { }
+  constructor(private authService: AuthService , 
+    private router : Router,private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
@@ -41,5 +42,5 @@ export class RegisterComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     )
-     }
+  }
 }

@@ -1,0 +1,18 @@
+<div class="register">
+    <div class="w3layoutscontaineragileits">
+        <h2>Register here</h2>
+        <form [formGroup]="registerAgencyForm" (ngSubmit)="onSubmit()">
+            <input type="text" formControlName="nameAgency" placeholder="Tên Nhà Xe" required="">
+            <input type="email" formControlName="phoneNumber" placeholder="Số Điện Thoại" required="">
+            <textarea name="" id="" cols="46" rows="4" formControlName="discription" placeholder="Mô Tả"></textarea>
+            <textarea name="" id="" cols="46" rows="4" formControlName="utilities" placeholder="Tiện Ích"></textarea>
+            <textarea name="" id="" cols="46" rows="4" formControlName="policy" placeholder="Chính Sách"></textarea>
+            <!-- <input type="textarea" formControlName="discription" placeholder="mô tả" required="">
+            <input type="textarea" formControlName="discription" placeholder="mô tả" required=""> -->
+            <!-- <input type="password" formControlName="password" placeholder="PASSWORD" required=""> -->
+            <div class="aitssendbuttonw3ls">
+                <input type="submit" value="REGISTER">
+            </div>
+        </form>
+    </div>
+</div>

@@ -20,7 +20,8 @@ export class SinginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor( private authService :AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
+  constructor( private authService :AuthService, 
+    private tokenStorage: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -37,11 +38,12 @@ export class SinginComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        console.log("Login thanh cong")
+        alert("Login thanh cong")
         this.router.navigateByUrl('/');
       },
       error => {
         this.errorMessage = error.error.message;
+        alert(this.errorMessage)
         this.isLoginFailed = true;
         // location.reload();
       }

@@ -89,7 +89,7 @@ removeClassSercice(star) {
     // console.log(this.selectedValueQulity *2 )
 
     // console.log(this.selectedValueService * 2)
-  await this.rateService.Rate(
+      await this.rateService.Rate(
       this.selectedValueQulity,
       this.selectedValueService,
       this.data.agency._id,
@@ -97,8 +97,8 @@ removeClassSercice(star) {
       ).subscribe(res =>{
         alert("Đánh giá thành công")
       } , error =>{
-        console.log(error)
-        // alert("Lỗi : " + error.name)
+        // console.log(error.error.message)
+        alert(error.error.message)
       })
     this.dialogRef.close();
 }
