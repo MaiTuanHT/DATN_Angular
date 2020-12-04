@@ -16,11 +16,10 @@ export class BookTicketService {
     return this.httpClient.get(`http://localhost:3000/schedules/findone/${id}`);
   }
 
-  public Ticket(fullName, email, phone, scheduleID , seat){
+  public Ticket(fullName, phone, scheduleID , seat){
     console.log(fullName)
     return this.httpClient.post('http://localhost:3000/tickets/',{
       fullName,
-      email,
       phone,
       scheduleID,
       seat

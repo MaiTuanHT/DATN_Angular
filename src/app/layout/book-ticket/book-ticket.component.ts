@@ -26,7 +26,7 @@ export class BookTicketComponent implements OnInit {
   user: any
   ticket : any
 
-  searchForm = new FormGroup({
+  bookForm = new FormGroup({
     phone : new FormControl(''),
     seat : new FormControl('')
   });
@@ -45,10 +45,21 @@ export class BookTicketComponent implements OnInit {
   }
 
   async onSubmit(){
-    // console.log(this.)
-    // console.log(this.user)
-    // console.log("vao day r") 
-     await this.bookTicketService.Ticket(this.user.fullName, this.user.email , this.searchForm.value.phone,this.schedule._id , this.searchForm.value.seat).subscribe(res=>{
+    if(!this.user.fullName){
+      alert("Bạn phải có tài khoản và đăng nhập trước khi đặt vé")
+      this.router.navigateByUrl('/singin')
+    }
+
+    if(!this.bookForm.value.phone || this.bookForm.value.phone == ''||
+    !this.bookForm.value.seat || this.bookForm.value.seat == ''){
+      alert("Xin vui lòng điền đầy đủ thông tin")
+    }
+    else if(this.bookForm.value.seat > (this.schedule.busID.seat- this.schedule.booked)){
+      const sgt = "Số ghế không đủ . Xin vui lòng chọn số ghế trong khoảng 1 -> " + (this.schedule.busID.seat - this.schedule.booked)
+      alert(sgt)
+    }
+    else{
+      await this.bookTicketService.Ticket(this.user.fullName,this.bookForm.value.phone,this.schedule._id , this.bookForm.value.seat).subscribe(res=>{
         this.ticket = res
         if(this.ticket){
           console.log(this.ticket)
@@ -56,6 +67,8 @@ export class BookTicketComponent implements OnInit {
           this.router.navigateByUrl('');
          }
      })
+    }
+   
   }
 
 }

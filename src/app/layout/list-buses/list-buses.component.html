@@ -1,6 +1,6 @@
 <div class="container ">
     <div class="listbus">
-        <div class="row" *ngFor = "let schedule of listSchedule">
+        <div class="row" *ngFor="let schedule of listSchedule">
             <div class="box-search shadow">
                 <div class="image">
                     <a href="#">
@@ -8,9 +8,13 @@
                     </a>
                 </div>
                 <div class="info">
-                    <div><h4>Tuyến Đường : {{schedule.routeID.startLocation}} - {{schedule.routeID.stopLocation}}</h4></div>
-                    <div><h4>Ngày đi : {{schedule.date}}-Giờ khởi hành : {{schedule.busID.departureTime}}</h4></div>
-                    <div>Số Ghế: 20/50</div>
+                    <div>
+                        <h4>Tuyến Đường : {{schedule.routeID.startLocation}} - {{schedule.routeID.stopLocation}}</h4>
+                    </div>
+                    <div>
+                        <h4>Ngày đi : {{schedule.date}}-Giờ khởi hành : {{schedule.busID.departureTime}}</h4>
+                    </div>
+                    <div>Số Ghế: {{schedule.booked}}/{{schedule.busID.seat}}</div>
                     <div class="price">
                         <!-- <span>500.000đ</span> -->
                         Giá vé: 500.000đ
@@ -22,7 +26,7 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
+        </div>
     </div>
-    </div>
-    
+
 </div>

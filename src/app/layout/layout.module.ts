@@ -19,6 +19,9 @@ import { RateComponent } from './rate/rate.component';
 // import {RateComponent} from './rate/rate.component'
 
 import {MatDialogModule} from "@angular/material/dialog";
+import { ListScheduleOfRouteComponent } from './list-schedule-of-route/list-schedule-of-route.component';
+import { ListScheduleOfRouteAndAgencyComponent } from './list-schedule-of-route-and-agency/list-schedule-of-route-and-agency.component';
+import { DetailAgencyComponent } from './detail-agency/detail-agency.component';
 
 
 
@@ -34,6 +37,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     TicketManagementComponent,
     TicketComponent,
     RateComponent,
+    ListScheduleOfRouteComponent,
+    ListScheduleOfRouteAndAgencyComponent,
+    DetailAgencyComponent,
     // MatDialogModule
   ],
   imports: [

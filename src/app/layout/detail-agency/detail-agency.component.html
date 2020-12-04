@@ -1,0 +1,20 @@
+<div class="ok">
+    <h2 mat-dialog-title> Chi Tiết Nhà Xe {{agency.nameAgency}}</h2>
+
+    <mat-dialog-content>
+        <img src="https://static.vexere.com/c/i/18773/xe-minh-tri-limousine-VeXeRe-oTJxjjw-1000x600.jpeg" alt="">
+        <h5>Số Điện Thoại : {{agency.phoneNumber}}</h5>
+        <div *ngIf="agency.totalRate" class="red">
+            <span class="rate">{{agency.scoreRate}}<i class="fa fa-star" style="color: yellow;" aria-hidden="true"></i></span>
+            <span class="text-rate">- {{agency.totalRate}} đánh giá</span>
+        </div>
+        <!-- <div *ngIf="!agency.totalRate" class="red">Chưa có đánh giá</div> -->
+        <p *ngIf="agency.policy">Chính Sách : {{agency.policy}}</p>
+        <p *ngIf="agency.utilities">tiện tích : {{agency.utilities}}</p>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="btn">
+        <button class="mat-raised-button btn btn-danger" (click)="close()">Close</button>
+    </mat-dialog-actions>
+
+</div>

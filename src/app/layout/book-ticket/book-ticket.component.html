@@ -1,73 +1,57 @@
+<div class="ok">
+    <div class="book-ticket">
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <label class="col-sm-3 col-form-label">Họ Tên</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" [value]="user?.fullName" readonly>
+                        </div>
+                    </div>
+                    <div class="row space">
+                        <label class="col-sm-3 col-form-label">Số ĐT</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" formControlName="phone" value="0">
+                        </div>
+                    </div>
 
-<div class="book-ticket">
-    <div></div>
-    <form [formGroup] = "searchForm" (ngSubmit)="onSubmit()">
-        <div class="form-group row" >
-            <div class="col-sm-6">
-                <div class="row">
-                    <label  class="col-sm-3 col-form-label">Họ Tên</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control"  [value]="user?.fullName" readonly>
+                    <div class="row space">
+                        <label class="col-sm-3 col-form-label">Nhà xe</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" [value]="nameGarage" readonly>
+                        </div>
                     </div>
-                </div>
-                <div class="row space">
-                    <label  class="col-sm-3 col-form-label">Email</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control"  [value]="user?.email" readonly>
-                    </div>
-                </div>
-                <div class="row space">
-                    <label  class="col-sm-3 col-form-label">Số ĐT</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" formControlName = "phone" value="0" >
-                    </div>
-                </div>
 
-                <div class="row space">
-                    <label  class="col-sm-3 col-form-label">Nhà xe</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control"  value= {{nameGarage}}  readonly>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <label class="col-sm-3 col-form-label">Tuyến</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" [value]="routeSchedule" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row space">
+                        <label class="col-sm-3 col-form-label">Thời Gian</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" [value]="time" readonly>
+                        </div>
+                    </div>
+                    <div class="row space">
+                        <label class="col-sm-3 col-form-label">Số Ghế</label>
+                        <div class="col-sm-9">
+                            <input type="number" min="1" class="form-control" formControlName="seat" value="1">
+                        </div>
                     </div>
                 </div>
 
             </div>
 
-
-            <div class="col-sm-6">
-                <div class="row">
-                    <label  class="col-sm-3 col-form-label">Tuyến</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control"  value= {{routeSchedule}}  readonly>
-                    </div>
-                </div>
-                
-                <div class="row space">
-                    <label  class="col-sm-3 col-form-label">Thời Gian</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control"  value={{time}} readonly>
-                    </div>
-                </div>
-                <div class="row space">
-                    <label  class="col-sm-3 col-form-label">Số Ghế</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" formControlName = "seat" value="1" >
-                    </div>
-                </div>
-                <!-- <div class="row space">
-                    <label  class="col-sm-3 col-form-label">Tổng Tiền</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="soghe" value="0000000" readonly>
-                    </div>
-                </div> -->
+            <div class="form-group row space xacnhan">
+                <button type="submit" class="btn btn-primary btn-xn">Xác Nhận</button>
             </div>
 
-           
-        </div>
-
-        <div class="form-group row space xacnhan">
-            <button type="submit" class="btn btn-primary btn-xn">Xác Nhận</button>
-        </div>
-        
-    </form>
+        </form>
+    </div>
 </div>
-

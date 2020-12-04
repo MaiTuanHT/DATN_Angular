@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { RateComponent } from '../rate/rate.component';
 import { DecodeJwtService } from 'src/app/helpers/decode-jwt.service';
+import { DetailAgencyComponent } from '../detail-agency/detail-agency.component';
 
 
 
@@ -40,25 +41,28 @@ export class ListAgencysComponent implements OnInit {
 
 
   openDialog(agency ,user) {
-
     const dialogConfig = new MatDialogConfig();
-
-    // const dialogConfig = new MatDialogConfig()
     dialogConfig.disableClose = true
     dialogConfig.autoFocus = true
-    // if(data !== null || data !== "undefined")
-    //   dialogConfig.data = data
-    dialogConfig.height = "300px"
+    // dialogConfig.height = "300px"
     dialogConfig.width = "500px"
     dialogConfig.data = {
       agency,
       user,
     }
     this.dialog.open(RateComponent, dialogConfig);
-    // dialogConfig.position = {
-    //   'top': '50%',
-    //   'left' : '50%'
-    // }
+  }
+
+  openDialogDetail(agency){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true
+    dialogConfig.autoFocus = true
+    // dialogConfig.height = "300px"
+    dialogConfig.width = "500px"
+    dialogConfig.data = {
+      agency
+    }
+    this.dialog.open(DetailAgencyComponent, dialogConfig);
   }
 
 }

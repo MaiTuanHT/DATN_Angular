@@ -14,13 +14,27 @@ export class ListBusesComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private listBusesService: ListBusesService) { }
   
-  ngOnInit(): void {
+  async ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log("id1 : " + id)
-    this.listBusesService.GetSchedule(id).subscribe(data => {
+    console.log(id)
+    const route = this.route.snapshot.paramMap.get('route')
+
+    if(route && id){
+      const vt = route.indexOf('-');
+      const startLocation = route.substr(0 , vt)
+      const stopLocation = route.substr(vt+1)
+      await this.listBusesService.GetScheduleForPageRoute(id,startLocation,stopLocation).subscribe(data=>{
+        this.listSchedule = data
+      })
+       
+    }
+
+    if(id && !route){
+      this.listBusesService.GetSchedule(id).subscribe(data => {
       this.listSchedule = data;
       console.log(this.listSchedule)
     })
+    }
   }
 
 }

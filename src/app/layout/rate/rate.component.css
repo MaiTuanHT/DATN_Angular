@@ -1,17 +1,24 @@
-.rate{
+.ok {
+    width: 100%;
+    background-color: #7FFFD4;
+}
+
+.rate {
     margin: 0 auto;
     width: 350px;
     height: 130px;
     /* background-color: tomato; */
 }
-h2{
+
+h2 {
     /* margin: 0 auto; */
     text-align: center;
 }
 
-.btn{
+.btn {
     margin: 0 auto;
 }
+
 
 /* .star{
     width: 20px;
@@ -24,7 +31,7 @@ h2{
     list-style: none;
 }
 
-.lb{
+.lb {
     font-size: 20px;
 }
 
@@ -35,7 +42,7 @@ h2{
     padding: 0 3px;
 }
 
-.service li:hover{
+.service li:hover {
     color: #ffd700;
 }
 
@@ -50,13 +57,14 @@ h2{
     padding: 0 3px;
 }
 
-.quality li:hover{
+.quality li:hover {
     color: #ffd700;
 }
 
 .quality li.selectedQ {
     color: #ffd700;
 }
+
 
 /* .rating-list {
     li {

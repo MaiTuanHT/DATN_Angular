@@ -1,19 +1,26 @@
-.book-ticket{
-    margin: 0 auto;
+.ok {
     margin-top: 20px;
-    width: 65%;
-    height: 260px;
-   
 }
 
-.btn-xn{
+.book-ticket {
+    margin: 0 auto;
+    padding-top: 30px;
+    width: 65%;
+    height: 260px;
+    background-color: #00BFFF;
+    border-radius: 5px;
+}
+
+.btn-xn {
     margin: 0 auto;
     width: 200px;
+    margin-top: 15px;
 }
-.form-group{
+
+.form-group {
     margin: 0 15px;
 }
 
-.space{
-    margin-top: 5px;
+.space {
+    margin-top: 10px;
 }

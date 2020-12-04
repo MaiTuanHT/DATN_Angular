@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { StarRatingComponent } from 'ng-starrating';
 import { DecodeJwtService } from 'src/app/helpers/decode-jwt.service';
 import {RateService} from './rate.service'
@@ -18,6 +19,7 @@ export class RateComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<RateComponent>,
     @Inject(MAT_DIALOG_DATA) private data , 
     private rateService : RateService,
+    private router: Router
    ) { }
 
   ngOnInit(): void {
@@ -82,13 +84,6 @@ removeClassSercice(star) {
 }
  async save() {
    console.log(this.data)
-  // this.agency = this.data
-  // console.log("data rate" + this.data.agency._id)
-  // this.user =  await this.decodeJwtService.getDecodedAccessToken()
-  // console.log(this.user._id)
-    // console.log(this.selectedValueQulity *2 )
-
-    // console.log(this.selectedValueService * 2)
       await this.rateService.Rate(
       this.selectedValueQulity,
       this.selectedValueService,
@@ -96,6 +91,7 @@ removeClassSercice(star) {
       this.data.user.userID
       ).subscribe(res =>{
         alert("Đánh giá thành công")
+        this.router.navigateByUrl('agencys');
       } , error =>{
         // console.log(error.error.message)
         alert(error.error.message)

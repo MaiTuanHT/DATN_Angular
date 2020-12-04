@@ -1,49 +1,40 @@
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-<!-- <script>
-$(document).ready(function(){
-$("app-rate").hide();
-  $("#danhgia").click(function(){
-    $("app-rate").tonggle();
-  });
-});
-</script> -->
+<app-search>
 
-<app-search></app-search>
+</app-search>
 <section>
     <div class="container">
         <div class="title">
             <h3>Các nhà xe chính</h3>
         </div>
-        <div class="row" >
-            <div class="col-lg-6" *ngFor = "let agency of listAgency">
+        <div class="row">
+            <div class="col-lg-6" *ngFor="let agency of listAgency">
                 <div class="box-search shadow">
-                    <div class="image">
-                        <a href="#">
+                    <div class="image" (click)="openDialogDetail(agency)">
+                        <a>
                             <img src="https://static.vexere.com/c/i/18773/xe-minh-tri-limousine-VeXeRe-oTJxjjw-1000x600.jpeg" alt="">
                         </a>
                     </div>
                     <div class="info">
                         <h2>
-                            <a href="#">{{agency.nameAgency}}</a>
-                           
+                            <a>{{agency.nameAgency}}</a>
                         </h2>
-                        <div>
-                            <span class="rate">5 <i class="fa fa-star" style="color: yellow;" aria-hidden="true"></i></span>
-                            <span class="text-rate">- 100 đánh giá</span>
+                        <div *ngIf="agency.totalRate" class="red">
+                            <span class="rate">{{agency.scoreRate}}<i class="fa fa-star" style="color: yellow;" aria-hidden="true"></i></span>
+                            <span class="text-rate">- {{agency.totalRate}} đánh giá</span>
                         </div>
-                        <p>{{agency.phoneNumber}}</p>
+                        <div *ngIf="!agency.totalRate" class="red">Chưa có đánh giá</div>
+                        <h6>{{agency.phoneNumber}}</h6>
                         <div class="btn-action">
                             <span> <a [routerLink]="['/buses', agency._id]">Danh sách chuyến</a></span>
-                            <span ><a  class="right" (click) = "openDialog(agency , user)"> Đánh giá</a></span>
-                            <!-- <span> <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)"></button> </span> -->
+                            <span><a  class="right" (click)="openDialog(agency , user)"> Đánh giá</a></span>
                         </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
         </div>
-        
-        
+
+
         <!-- <div class="row">
             <div class="col-lg-12">
                 <div class="phantrang">
@@ -69,4 +60,3 @@ $("app-rate").hide();
         </div> -->
     </div>
 </section>
-
