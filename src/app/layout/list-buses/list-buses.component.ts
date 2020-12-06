@@ -25,6 +25,8 @@ export class ListBusesComponent implements OnInit {
       const stopLocation = route.substr(vt+1)
       await this.listBusesService.GetScheduleForPageRoute(id,startLocation,stopLocation).subscribe(data=>{
         this.listSchedule = data
+      }, error=>{
+        alert(error.error.name)
       })
        
     }

@@ -13,10 +13,18 @@
                         <a routerLink="tickets">Tra cứu vé</a>
                     </li>
                     <li>
-                        <a routerLink="singin">Đăng nhập</a>
+                        <div class="dropdown taikhoan">
+                            <a class="dropbtn" style="color: white" *ngIf="!tokenStorageService.loggedIn()">Tài khoản</a>
+                            <a class="dropbtn" style="color: red;">Xin Chào {{decodeJwtService.getDecodedAccessToken().fullName}}</a>
+                            <div class="dropdown-content">
+                                <a routerLink="singin" style="color: black;">Đăng Nhập</a>
+                                <a (click)="singOut()" style="color: black;">Đăng Xuất</a>
+                            </div>
+                        </div>
                     </li>
+
                     <li>
-                        <a routerLink="register-agency">Đăng kí dại lý</a>
+                        <a routerLink="register-agency">Đăng kí đại lý</a>
                     </li>
                 </ul>
             </div>

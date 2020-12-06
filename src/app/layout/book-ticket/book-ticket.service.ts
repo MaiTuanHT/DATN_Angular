@@ -13,7 +13,7 @@ export class BookTicketService {
   constructor(private httpClient : HttpClient) { }
   
   public GetSchedule(id){
-    return this.httpClient.get(`http://localhost:3000/schedules/findone/${id}`);
+    return this.httpClient.get(`http://localhost:3000/schedules/findSchedule/${id}`);
   }
 
   public Ticket(fullName, phone, scheduleID , seat){

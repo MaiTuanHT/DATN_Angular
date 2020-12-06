@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { tick } from '@angular/core/testing';
 import { FormControl, FormGroup } from '@angular/forms';
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { Router } from '@angular/router';
+import { from } from 'rxjs';
+import { DecodeJwtService } from 'src/app/helpers/decode-jwt.service';
 import {TicketManagementService} from './ticket-management.service'
+
+import{TicketComponent} from '../ticket/ticket.component'
 
 @Component({
   selector: 'app-ticket-management',
@@ -15,23 +21,52 @@ export class TicketManagementComponent implements OnInit {
     dateStart : new FormControl('')
   });
 
-  constructor(private ticketManagementService: TicketManagementService ) { }
+  constructor(private ticketManagementService: TicketManagementService,
+    private router : Router,
+    private dialog: MatDialog,
+    private decodeJwtService: DecodeJwtService ) { }
 
-  tickets : any
-   a = 0;
-  ngOnInit(): void {
+  listTicket : any
+  user: any
+  async ngOnInit() {
+    this.user = await this.decodeJwtService.getDecodedAccessToken()
+  }
+  async openDialog(user) {
+    if(!this.searchForm.value.phoneNumber || !this.searchForm.value.dateStart){
+      alert("Xin vui lòng điền đầy đủ thông tin")
+    }else{
+      if(this.searchForm.value){
+        console.log(this.searchForm.value)
+        await this.ticketManagementService.GetTicket(this.searchForm.value.phoneNumber, 
+          this.searchForm.value.dateStart).subscribe(data=>{
+            this.listTicket = data;
+
+            const tickets = this.listTicket
+            console.log("tickets : " , tickets)
+            const dialogConfig = new MatDialogConfig();
+            dialogConfig.disableClose = true
+            dialogConfig.autoFocus = true
+            // dialogConfig.height = "300px"
+            dialogConfig.width = "800px"
+            dialogConfig.data = {
+              tickets
+            }
+            console.log( "data: ",dialogConfig.data)
+            if(!user){
+              alert("Ban Can Co Tai Khoan Dat Ve")
+              this.router.navigateByUrl('singin')
+            }
+            else this.dialog.open(TicketComponent, dialogConfig);
+
+
+            console.log("list ticket : " ,this.listTicket)
+          }, error=>{
+            alert(error.error.name)
+        })
+
+      }
+
+    }
 
   }
-
-  onSubmit(){
-    console.log(this.searchForm.value.phoneNumber)
-    console.log(this.searchForm.value.dateStart)
-    this.ticketManagementService.GetTicket(this.searchForm.value.phoneNumber, 
-      this.searchForm.value.dateStart).subscribe(data=>{
-        this.tickets = data;
-        console.log(this.tickets)
-        this.a ++ ;
-      })
-  }
-
 }

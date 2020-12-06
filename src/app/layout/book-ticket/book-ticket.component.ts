@@ -35,6 +35,7 @@ export class BookTicketComponent implements OnInit {
     this.user = this.decodeJwtService.getDecodedAccessToken()
     console.log(this.user)
     const id = this.route.snapshot.paramMap.get('id');
+    console.log('id : ', id)
     await this.bookTicketService.GetSchedule(id).subscribe(data =>{
       this.schedule = data
       console.log(this.schedule)
@@ -66,6 +67,8 @@ export class BookTicketComponent implements OnInit {
           alert("Đăng kí vé thành công");
           this.router.navigateByUrl('');
          }
+     }, error=>{
+       alert(error.error.name)
      })
     }
    

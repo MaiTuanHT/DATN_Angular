@@ -11,7 +11,7 @@ export class ListBusesService {
 
   // listSchedule : any
    public GetSchedule(id){
-     console.log("da vao day")
+    console.log("da vao day")
     return this.httpClient.get(`http://localhost:3000/schedules/${id}`);
     // console.log(this.listSchedule)
   }

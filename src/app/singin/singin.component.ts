@@ -34,18 +34,14 @@ export class SinginComponent implements OnInit {
       res => {
         this.tokenStorage.saveToken(res.accessToken);
         console.log(res);
-        // this.tokenStorage.saveToken(res.token);
-
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         alert("Login thanh cong")
         this.router.navigateByUrl('/');
       },
       error => {
-        this.errorMessage = error.error.message;
-        alert(this.errorMessage)
+        alert(error.error.name)
         this.isLoginFailed = true;
-        // location.reload();
       }
     )
    }

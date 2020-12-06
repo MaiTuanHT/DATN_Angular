@@ -21,4 +21,8 @@ export class TokenStorageService {
   public getToken() {
     return sessionStorage.getItem(TOKEN_KEY);
   }
+
+  public loggedIn () {
+    return !!sessionStorage.getItem(TOKEN_KEY);
+  }
 }

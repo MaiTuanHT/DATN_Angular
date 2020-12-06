@@ -15,10 +15,6 @@
                         <h4>Ngày đi : {{schedule.date}}-Giờ khởi hành : {{schedule.busID.departureTime}}</h4>
                     </div>
                     <div>Số Ghế: {{schedule.booked}}/{{schedule.busID.seat}}</div>
-                    <div class="price">
-                        <!-- <span>500.000đ</span> -->
-                        Giá vé: 500.000đ
-                    </div>
                     <div class="btn-action-book">
                         <a [routerLink]="['/book-ticket' , schedule._id]">Đặt vé</a>
                         <!-- <a routerLink="/book-ticket">Đặt vé</a> -->

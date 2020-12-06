@@ -38,6 +38,8 @@ export class SearchComponent implements OnInit {
       // console.log(this.listScheduleSearch)
       this.transfereService.setData(this.listScheduleSearch)
       this.router.navigateByUrl('/listBusesSearch')
+    }, error=>{
+      alert(error.error.name)
     })
   }
 

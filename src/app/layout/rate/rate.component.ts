@@ -25,9 +25,6 @@ export class RateComponent implements OnInit {
   ngOnInit(): void {
     this.agency = this.data.agency
     this.user = this.data.user
-    // console.log(this.data)
-    // console.log(this.user)
-    // this.user = this.decodeJwtService.getDecodedAccessToken()
   }
 
   onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
@@ -83,18 +80,22 @@ removeClassSercice(star) {
    }
 }
  async save() {
-   console.log(this.data)
       await this.rateService.Rate(
       this.selectedValueQulity,
       this.selectedValueService,
       this.data.agency._id,
       this.data.user.userID
       ).subscribe(res =>{
-        alert("Đánh giá thành công")
-        this.router.navigateByUrl('agencys');
+        if(res){
+          alert("Đánh giá thành công")
+          this.router.navigateByUrl('agencys');
+          // window.location.reload()
+        }
+        else{
+          alert("Ban Chua Dang Nhap")
+        }
       } , error =>{
-        // console.log(error.error.message)
-        alert(error.error.message)
+        alert(error.error.name)
       })
     this.dialogRef.close();
 }

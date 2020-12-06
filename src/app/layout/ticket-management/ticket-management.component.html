@@ -2,25 +2,22 @@
     <div class="banner">
         <img style="width: 100%; height: 250px; object-fit: cover;" src="../../../assets/images/anhxekhach.jpg" alt="">
         <div class="form-search-banner shadow">
-            <form [formGroup] = "searchForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="searchForm">
                 <div class="form-datit">
-                    <input type="tel" formControlName = "phoneNumber"  placeholder="Nhập sđt đặt vé" class="" title="Ten digits code" required/>    
+                    <input type="tel" formControlName="phoneNumber" placeholder="Nhập sđt đặt vé" class="" title="Ten digits code" required/>
                 </div>
                 <div>
                     <button class="btn-replace"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                 </div>
                 <div class="form-datit">
-                <input type="text" formControlName = "dateStart" class="" placeholder="Nhập ngày đi" onfocus="(this.type = 'date')">
+                    <input type="text" formControlName="dateStart" class="" placeholder="Nhập ngày đi" onfocus="(this.type = 'date')">
                 </div>
                 <div>
-                    <button class="btn-search" type="submit">Tra Cứu</button>
+                    <button class="btn-search" (click)="openDialog(user)">Tra Cứu</button>
                 </div>
             </form>
-            
+
         </div>
-        
-    </div>
-    <div *ngIf = "a == 1">
-        <app-ticket></app-ticket>
+
     </div>
 </div>

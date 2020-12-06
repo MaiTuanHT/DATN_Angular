@@ -25,9 +25,8 @@ export class ListRoutesComponent implements OnInit {
           console.log(each.agencyID.nameAf)
         })
       });
-
-      // console.log(keys)
-      // console.log(this.listAgencyRoute)
+    } , error => {
+      alert(error.error.name)
     })
   }
 

@@ -8,6 +8,10 @@ export class TicketManagementService {
 
   constructor(private httpClient : HttpClient) { }
   public GetTicket(phone , dateStart){
-    return this.httpClient.get(`http://localhost:3000/tickets/many/?phone=${phone}&date=${dateStart}`);
+    try {
+      return this.httpClient.get(`http://localhost:3000/tickets/many/${phone}/${dateStart}`);
+    } catch(error) {
+      console.log(error)
+    }
   }
 }

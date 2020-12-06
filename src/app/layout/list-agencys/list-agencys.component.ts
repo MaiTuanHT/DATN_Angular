@@ -29,17 +29,15 @@ export class ListAgencysComponent implements OnInit {
   async ngOnInit() { 
   
     this.user = await this.decodeJwtService.getDecodedAccessToken()
-    // console.log(this.user)
 
     await this.listAgencysService.GetListAgency().subscribe(data => {
       this.listAgency = data;
-      // console.log(this.listAgency)
+    }, error=>{
+      alert(error.error.name)
     })
 
     
   }
-
-
   openDialog(agency ,user) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true
@@ -50,7 +48,11 @@ export class ListAgencysComponent implements OnInit {
       agency,
       user,
     }
-    this.dialog.open(RateComponent, dialogConfig);
+    if(!user){
+      alert("Ban Can Co Tai Khoan De Danh Gia")
+      this.router.navigateByUrl('singin')
+    }
+    else this.dialog.open(RateComponent, dialogConfig);
   }
 
   openDialogDetail(agency){
