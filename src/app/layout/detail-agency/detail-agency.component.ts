@@ -14,7 +14,9 @@ export class DetailAgencyComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private data) { }
 
   ngOnInit(): void {
+    console.log("Vao Detail")
     this.agency = this.data.agency
+    console.log(this.agency)
   }
 
   close() {

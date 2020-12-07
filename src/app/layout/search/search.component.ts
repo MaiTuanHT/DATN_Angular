@@ -16,31 +16,37 @@ export class SearchComponent implements OnInit {
 
   startLocation : any
   stopLocation : any
+  date: any
   listScheduleSearch: any;
   searchForm = new FormGroup({
     startLocation : new FormControl(''),
-    stopLocation : new FormControl('')
+    stopLocation : new FormControl(''),
+    date : new FormControl('')
   });
 
   constructor(private searchService : SearchService , private router: Router, private transfereService : TransfereService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     // this.onSubmit()
   }
 
   onSubmit(){
+    console.log("Vao Search Lan")
     this.startLocation = this.searchForm.value.startLocation;
     this.stopLocation = this.searchForm.value.stopLocation;
-    // this.ngOnInit()
-    this.searchService.GetSchedule(this.startLocation , this.stopLocation).subscribe(data =>{
+    this.date = this.searchForm.value.date
+    this.searchService.GetSchedule(this.startLocation , this.stopLocation , this.date).subscribe(data =>{
       console.log("Diem Di" + this.startLocation)
       this.listScheduleSearch = data
-      // console.log(this.listScheduleSearch)
       this.transfereService.setData(this.listScheduleSearch)
       this.router.navigateByUrl('/listBusesSearch')
     }, error=>{
       alert(error.error.name)
     })
   }
+
+  // refesh(){
+  //   this.ngOnInit()
+  // }
 
 }

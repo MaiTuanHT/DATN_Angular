@@ -1,12 +1,10 @@
 <div class="main">
     <div class="banner">
-        <img style="width: 100%; height: 400px; object-fit: cover;" src="https://i.pinimg.com/originals/7e/2f/c7/7e2fc73366f80f96587cd79347d26b32.jpg" alt="">
+        <img style="width: 100%; height: 300px; object-fit: cover;" src="https://i.pinimg.com/originals/7e/2f/c7/7e2fc73366f80f96587cd79347d26b32.jpg" alt="">
         <div class="form-search-banner shadow">
-            <form [formGroup] = "searchForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
                 <div class="form-datit">
-                    <!-- <input formControlName = "startLocation" list="categories" class="tags" type="text" placeholder="Nhập điểm đi..."> -->
-                    <select formControlName = "startLocation" class="tags" >
-                        <option value="1">Điểm Đi</option>
+                    <select formControlName="startLocation" class="tags width" aria-placeholder="Điểm Đi">
                         <option value="Đà Nẵng">Đà Nẵng</option>
                         <option value="Nghệ An">Nghệ An</option>
                         <option value="Hà Tĩnh">Hà Tĩnh</option>
@@ -18,13 +16,8 @@
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                     </button>
                 </div>
-                <div>
-                    <button class="btn-replace"><i class="fa fa-refresh" aria-hidden="true"></i></button>
-                </div>
                 <div class="form-datit">
-                    <!-- <input formControlName = "stopLocation" list="categories" class="tags" type="text" placeholder="Nhập điểm đến..."> -->
-                    <select formControlName = "stopLocation" class="tags" >
-                        <option value="1">Điểm Đến</option>
+                    <select formControlName="stopLocation" class="tags width" aria-placeholder="Điểm Đến">
                         <option value="Đà Nẵng">Đà Nẵng</option>
                         <option value="Nghệ An">Nghệ An</option>
                         <option value="Hà Tĩnh">Hà Tĩnh</option>
@@ -36,6 +29,11 @@
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                     </button>
                 </div>
+
+                <div class="form-datit">
+                    <input formControlName="date" type="date" placeholder="Ngày Đi" class="width">
+                </div>
+
                 <div>
                     <button class="btn-search" type="submit">Tìm vé xe</button>
                 </div>

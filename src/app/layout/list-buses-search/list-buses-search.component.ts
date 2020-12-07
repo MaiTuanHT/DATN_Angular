@@ -10,10 +10,9 @@ export class ListBusesSearchComponent implements OnInit {
 
   constructor(private transfereService : TransfereService) { }
   listSchedule : any
+ 
   ngOnInit(): void {
+    console.log("Vao lan thu : ")
     this.listSchedule = this.transfereService.getData()
-    console.log("listSchedule : ")
-    console.log(this.listSchedule)
   }
-
 }

@@ -39,7 +39,7 @@ async onSubmit(){
         alert("Bạn Đã Đăng Ký Thành Công Nhà Xe Của Mình \nHãy Liên Hệ 0348721777 Để Truy Cập Nhé")
         this.router.navigateByUrl('');
       } , error=>{
-        alert(error.error.message)
+        alert(error.error.name)
       })
     }
   }

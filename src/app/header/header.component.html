@@ -14,8 +14,8 @@
                     </li>
                     <li>
                         <div class="dropdown taikhoan">
-                            <a class="dropbtn" style="color: white" *ngIf="!tokenStorageService.loggedIn()">Tài khoản</a>
-                            <a class="dropbtn" style="color: red;">Xin Chào {{decodeJwtService.getDecodedAccessToken().fullName}}</a>
+                            <a class="dropbtn" style="color: white">Tài khoản</a>
+                            <!-- <a class="dropbtn" style="color: red;">Xin Chào {{decodeJwtService.getDecodedAccessToken().fullName}}</a> -->
                             <div class="dropdown-content">
                                 <a routerLink="singin" style="color: black;">Đăng Nhập</a>
                                 <a (click)="singOut()" style="color: black;">Đăng Xuất</a>
