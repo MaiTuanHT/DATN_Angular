@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {TransfereService} from '../../services/transfere.service'
 
 @Component({
@@ -8,7 +9,7 @@ import {TransfereService} from '../../services/transfere.service'
 })
 export class ListBusesSearchComponent implements OnInit {
 
-  constructor(private transfereService : TransfereService) { }
+  constructor(private transfereService : TransfereService, private router: Router) { }
   listSchedule : any
  
   ngOnInit(): void {

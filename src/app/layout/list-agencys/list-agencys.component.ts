@@ -18,6 +18,7 @@ export class ListAgencysComponent implements OnInit {
 
   listAgency : any;
   user : any
+  i : 1
 
   constructor(private httpClient : HttpClient, 
     private listAgencysService : ListAgencysService,
@@ -26,8 +27,9 @@ export class ListAgencysComponent implements OnInit {
      private decodeJwtService: DecodeJwtService
      ) { }
 
-  async ngOnInit() { 
+  public async ngOnInit() { 
   
+    console.log("goi ngonit roi")
     this.user = await this.decodeJwtService.getDecodedAccessToken()
 
     await this.listAgencysService.GetListAgency().subscribe(data => {
@@ -65,6 +67,6 @@ export class ListAgencysComponent implements OnInit {
       agency
     }
     this.dialog.open(DetailAgencyComponent, dialogConfig);
+    // this.ngOnInit()
   }
-
 }

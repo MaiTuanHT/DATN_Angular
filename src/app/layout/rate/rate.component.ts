@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { StarRatingComponent } from 'ng-starrating';
+import { from } from 'rxjs';
 import { DecodeJwtService } from 'src/app/helpers/decode-jwt.service';
 import {RateService} from './rate.service'
 
@@ -19,7 +20,7 @@ export class RateComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<RateComponent>,
     @Inject(MAT_DIALOG_DATA) private data , 
     private rateService : RateService,
-    private router: Router
+    private router: Router,
    ) { }
 
   ngOnInit(): void {
@@ -88,8 +89,8 @@ removeClassSercice(star) {
       ).subscribe(res =>{
         if(res){
           alert("Đánh giá thành công")
-          this.router.navigateByUrl('agencys');
-          // window.location.reload()
+          this.router.navigate(['/agencys'])
+          window.location.reload()
         }
         else{
           alert("Ban Chua Dang Nhap")
@@ -97,7 +98,8 @@ removeClassSercice(star) {
       } , error =>{
         alert(error.error.name)
       })
-    this.dialogRef.close();
+      
+      this.dialogRef.close();
 }
 
 close() {
