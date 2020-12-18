@@ -1,1 +1,38 @@
-<p>list-schedule-of-route works!</p>
+<div class="list-button">
+    <button class="btn btn-primary" (click)="priceAscending()">Giá vé tăng dần</button>
+    <button class="btn btn-danger" (click)="priceDecrease()">Giá vé giảm dần</button>
+    <button class="btn btn-primary" (click)="qualityAcending()">Chất lượng nhà xe tăng dần</button>
+    <button class="btn btn-danger" (click)="qualityDecrease()">Chất lượng nhà xe giảm dần</button>
+</div>
+
+<div class="container-search" *ngFor="let schedule of listSchedule">
+
+    <div class="row">
+        <div class="box-search shadow">
+            <div class="image">
+                <a href="#">
+                    <img src="../../../assets/images/anhxekhach.jpg" alt="">
+                </a>
+            </div>
+            <div class="info">
+                <div>
+                    <h4>Nhà Xe : {{schedule.agencyID.nameAgency}}({{schedule.agencyID.scoreRate}}<i class="fa fa-star" style="color: yellow;" aria-hidden="true"></i>/{{schedule.agencyID.totalRate}})</h4>
+                </div>
+                <div>
+                    <h5>Tuyến Đường : {{schedule.routeID.startLocation}} - {{schedule.routeID.startLocation}}</h5>
+                </div>
+                <div>
+                    <h5>Ngày Đi : {{schedule.date}}-Giờ khởi hành : {{schedule.busID.departureTime}}</h5>
+                </div>
+                <div>Số Ghế: {{schedule.booked}}/{{schedule.busID.seat}}</div>
+                <div class="price">
+                    Giá Vé : {{schedule.price}}đ
+                </div>
+                <div class="btn-action-book">
+                    <a [routerLink]="['/book-ticket' , schedule._id]">Đặt vé</a>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

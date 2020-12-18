@@ -24,9 +24,6 @@ export class HeaderComponent implements OnInit {
   singOut(){
     this.ngOnInit()
     this.tokenStorageService.signOut()
-    // this.ngOnInit()
-   
-    // window.location.reload()
     this.router.navigate(['singin'])
   }
 

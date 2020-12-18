@@ -10,8 +10,8 @@
                     <label for="" class="lb">Đánh giá chất lượng</label>
                 </div>
                 <div class="col-sm-5 ">
-                    <ul class="list-inline rating-list quality" *ngFor="let starQuality of stars; let i= index" style="display: inline-block">
-                        <li (click)="countStarQuality(starQuality)" id="{{'starIdQ'+i}}" [ngClass]="{'selectedQ': (starQuality <= selectedValueQulity)}" (mouseover)="addClassQuality(starQuality)" (mouseout)="removeClassQuality(starQuality)"> ★
+                    <ul class="list-inline rating-list quality" *ngFor="let starQuality of stars1; let i1= indexa" style="display: inline-block">
+                        <li (click)="countStarQuality(starQuality)" id="{{'starIdQ'+i1}}" [ngClass]="{'selectedQ': (starQuality <= selectedValueQulity)}" (mouseover)="addClassQuality(starQuality)" (mouseout)="removeClassQuality(starQuality)"> ★
                         </li>
                     </ul>
                 </div>
@@ -22,8 +22,8 @@
                     <label for="" class="lb">Đánh giá phục vụ</label>
                 </div>
                 <div class="col-sm-5 ">
-                    <ul class="list-inline rating-list service" *ngFor="let starService of stars; let i= index" style="display: inline-block">
-                        <li (click)="countStarService(starService)" id="{{'starIdS'+i}}" [ngClass]="{'selectedS': (starService <= selectedValueService)}" (mouseover)="addClassService(starService)" (mouseout)="removeClassSercice(starService)"> ★
+                    <ul class="list-inline rating-list service" *ngFor="let starService of stars2; let i2= indexb" style="display: inline-block">
+                        <li (click)="countStarService(starService)" id="{{'starIdS'+i2}}" [ngClass]="{'selectedS': (starService <= selectedValueService)}" (mouseover)="addClassService(starService)" (mouseout)="removeClassSercice(starService)"> ★
                         </li>
                     </ul>
                 </div>

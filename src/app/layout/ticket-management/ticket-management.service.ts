@@ -7,9 +7,9 @@ import { HttpClient } from '@angular/common/http';
 export class TicketManagementService {
 
   constructor(private httpClient : HttpClient) { }
-  public GetTicket(phone , dateStart){
+  public GetTicket(phone , date){
     try {
-      return this.httpClient.get(`http://localhost:3000/tickets/many/${phone}/${dateStart}`);
+      return this.httpClient.get(`http://localhost:3000/tickets/many/${phone}/${date}`);
     } catch(error) {
       console.log(error)
     }

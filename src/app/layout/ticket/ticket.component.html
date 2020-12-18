@@ -7,6 +7,7 @@
             <table class="table table-striped table-primary">
                 <thead>
                     <tr>
+                        <th>STT Đặt</th>
                         <th>Nhà Xe</th>
                         <th>Tuyến Đường</th>
                         <th>Ngày Đi</th>
@@ -15,7 +16,8 @@
                 </thead>
                 <tbody *ngFor="let ticket of tickets">
                     <tr>
-                        <td>{{ticket.fullName}}</td>
+                        <td>{{ticket.orderNumber}}</td>
+                        <td>{{ticket.scheduleID.agencyID.nameAgency}}</td>
                         <td>{{ticket.scheduleID.routeID.startLocation}} - {{ticket.scheduleID.routeID.stopLocation}}</td>
                         <td>{{ticket.scheduleID.date}}</td>
                         <td>{{ticket.scheduleID.busID.departureTime}}</td>

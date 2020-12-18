@@ -41,6 +41,8 @@ export class ListAgencysComponent implements OnInit {
     
   }
   openDialog(agency ,user) {
+    //  cái chổ ni chưa hiểu 
+    // hàm này hắn sẽ mở lên một cái diaglog, trong dialog sẽ chứa cái rate componet của em
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true
     dialogConfig.autoFocus = true
@@ -55,6 +57,10 @@ export class ListAgencysComponent implements OnInit {
       this.router.navigateByUrl('singin')
     }
     else this.dialog.open(RateComponent, dialogConfig);
+
+    this.dialog.afterAllClosed.subscribe(result=>{
+      this.ngOnInit()
+    })
   }
 
   openDialogDetail(agency){

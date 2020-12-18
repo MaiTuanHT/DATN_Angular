@@ -46,7 +46,7 @@ export class TicketManagementComponent implements OnInit {
             const dialogConfig = new MatDialogConfig();
             dialogConfig.disableClose = true
             dialogConfig.autoFocus = true
-            // dialogConfig.height = "300px"
+           
             dialogConfig.width = "800px"
             dialogConfig.data = {
               tickets
@@ -57,7 +57,6 @@ export class TicketManagementComponent implements OnInit {
               this.router.navigateByUrl('singin')
             }
             else this.dialog.open(TicketComponent, dialogConfig);
-
 
             console.log("list ticket : " ,this.listTicket)
           }, error=>{

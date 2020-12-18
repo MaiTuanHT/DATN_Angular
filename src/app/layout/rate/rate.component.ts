@@ -36,7 +36,8 @@ export class RateComponent implements OnInit {
   }
 
 
-stars: number[] = [1, 2, 3, 4, 5];
+stars1: number[] = [1, 2, 3, 4, 5];
+stars2: number[] = [1, 2, 3, 4, 5];
 selectedValueQulity: number = 0;
   selectedValueService : number = 0;
 
@@ -89,8 +90,9 @@ removeClassSercice(star) {
       ).subscribe(res =>{
         if(res){
           alert("Đánh giá thành công")
-          this.router.navigate(['/agencys'])
-          window.location.reload()
+          this.router.navigate(['/agencys']) // em có gọi như anh nói ở đây nhưng ko load đc nè window.location.reload() // ở đây em load lại toàn bộ , em muốn load lại mỗi component agency thôi
+          // em load lại trang bằng cách này, nhưng cái này load hết toàn bộ , em muốn load mỗi compone
+          // compnent em muốn load lại 
         }
         else{
           alert("Ban Chua Dang Nhap")

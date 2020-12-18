@@ -6,13 +6,14 @@
                     <div class="row">
                         <label class="col-sm-3 col-form-label">Họ Tên</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" [value]="user?.fullName" readonly>
+                            <input type="text" class="form-control" [value]="name" readonly>
                         </div>
                     </div>
                     <div class="row space">
                         <label class="col-sm-3 col-form-label">Số ĐT</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" formControlName="phone" value="0">
+                            <input *ngIf="userGet" type="text" class="form-control" formControlName="phone" [ngModel]="userGet.phoneNumber">
+                            <input *ngIf="!userGet" type="text" class="form-control" formControlName="phone" value="0">
                         </div>
                     </div>
 

@@ -16,6 +16,10 @@ export class BookTicketService {
     return this.httpClient.get(`http://localhost:3000/schedules/findSchedule/${id}`);
   }
 
+  public getUser(id){
+    return this.httpClient.get(`http://localhost:3000/users/${id}`);
+  }
+
   public Ticket(fullName, phone, scheduleID , seat){
     console.log(fullName)
     return this.httpClient.post('http://localhost:3000/tickets/',{

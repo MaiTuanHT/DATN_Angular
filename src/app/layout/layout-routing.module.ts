@@ -14,6 +14,7 @@ import {RegisterComponent} from '../register/register.component'
 import { TicketManagementComponent } from './ticket-management/ticket-management.component';
 import { RateComponent } from './rate/rate.component';
 import { RegisterAgencyComponent } from '../register-agency/register-agency.component';
+import { ListScheduleOfRouteComponent } from './list-schedule-of-route/list-schedule-of-route.component';
 
 
 const routes: Routes = [{ path: '', component: LayoutComponent,
@@ -29,7 +30,9 @@ const routes: Routes = [{ path: '', component: LayoutComponent,
     {path: "register-agency" , component: RegisterAgencyComponent},
     {path: "register" , component: RegisterComponent},
     {path: "tickets" , component: TicketManagementComponent},
-    {path: "rate" , component: RateComponent}
+    {path: "rate" , component: RateComponent},
+    {path: "schedule-of-route/:key" , component:  ListScheduleOfRouteComponent}
+   
   ]}  
 ];
 

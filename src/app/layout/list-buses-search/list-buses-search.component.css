@@ -1,6 +1,23 @@
-.container-search{
+.container-search {
     /* background-color: rebeccapurple; */
-   padding-top: 20px;
+    padding-top: 20px;
+    margin-left: 10px;
     width: 55%;
     margin: 0 auto;
+}
+
+.list-button {
+    padding-top: 20px;
+    width: 100%;
+    margin: auto;
+    /* align-items: center; */
+    text-align: center;
+    /* display: block; */
+    /* height: 50px; */
+    /* background-color: green; */
+}
+
+.image {
+    height: 100%;
+    width: 37%;
 }

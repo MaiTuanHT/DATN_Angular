@@ -6,6 +6,7 @@ import {TransfereService} from '../../services/transfere.service'
 
 import {Router} from '@angular/router'
 
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-search',
@@ -31,23 +32,26 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("Vao Search Lan")
     this.startLocation = this.searchForm.value.startLocation;
     this.stopLocation = this.searchForm.value.stopLocation;
     this.date = this.searchForm.value.date
     this.searchService.GetSchedule(this.startLocation , this.stopLocation , this.date).subscribe(data =>{
-      console.log("Diem Di" + this.startLocation)
       this.listScheduleSearch = data
-      this.transfereService.setData(this.listScheduleSearch)
-      this.router.navigateByUrl('/listBusesSearch')
+      if(!this.listScheduleSearch){
+        alert("Không có lịch trình phù hợp")
+      }
+      else{
+        this.transfereService.setData(this.listScheduleSearch) // truyền dữ liệu 
 
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/listBusesSearch']);
+      }); 
+
+        // this.router.navigate(['/listBusesSearch'])
+      }
+      
     }, error=>{
       alert(error.error.name)
     })
   }
-
-  // refesh(){
-  //   this.ngOnInit()
-  // }
-
 }

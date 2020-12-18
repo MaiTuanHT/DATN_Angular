@@ -25,6 +25,8 @@ export class BookTicketComponent implements OnInit {
   time: any
   user: any
   ticket : any
+  name : any
+  userGet: any
 
   bookForm = new FormGroup({
     phone : new FormControl(''),
@@ -32,32 +34,41 @@ export class BookTicketComponent implements OnInit {
   });
   
   async ngOnInit() {
-    this.user = this.decodeJwtService.getDecodedAccessToken()
-    console.log(this.user)
+    this.user = await this.decodeJwtService.getDecodedAccessToken()
+    console.log("user : " , this.user)
+    this.name = this.user.fullName
+
+     await this.bookTicketService.getUser(this.user.userID).subscribe(data=>{
+      this.userGet = data
+    }, error=>{
+      alert(error.error.name)
+    })
+
     const id = this.route.snapshot.paramMap.get('id');
     console.log('id : ', id)
     await this.bookTicketService.GetSchedule(id).subscribe(data =>{
       this.schedule = data
       console.log(this.schedule)
       this.nameGarage = this.schedule.agencyID.nameAgency
+      console.log("name agency: " , this.nameGarage)
       this.routeSchedule = this.schedule.routeID.startLocation + " - " + this.schedule.routeID.stopLocation
       this.time = this.schedule.date + " - " + this.schedule.busID.departureTime
     })
   }
 
   async onSubmit(){
-    if(!this.user.fullName){
+    if(!this.user){
       alert("Bạn phải có tài khoản và đăng nhập trước khi đặt vé")
       this.router.navigateByUrl('/singin')
+    }else if(this.bookForm.value.seat < 1){
+      alert("Số ghế bạn đặt phải lớn hơn 0")
     }
-
-    if(!this.bookForm.value.phone || this.bookForm.value.phone == ''||
-    !this.bookForm.value.seat || this.bookForm.value.seat == ''){
+    else if(!this.bookForm.value.phone || this.bookForm.value.phone == ''||
+    !this.bookForm.value.seat){
       alert("Xin vui lòng điền đầy đủ thông tin")
     }
     else if(this.bookForm.value.seat > (this.schedule.busID.seat- this.schedule.booked)){
-      const sgt = "Số ghế không đủ . Xin vui lòng chọn số ghế trong khoảng 1 -> " + (this.schedule.busID.seat - this.schedule.booked)
-      alert(sgt)
+      alert("Số ghế không đủ . Xin vui lòng chọn số ghế phù hợp ")
     }
     else{
       await this.bookTicketService.Ticket(this.user.fullName,this.bookForm.value.phone,this.schedule._id , this.bookForm.value.seat).subscribe(res=>{
