@@ -21,11 +21,13 @@ export class ListScheduleOfRouteComponent implements OnInit {
     }, error=>{
       alert(error.error.name)
     })
-
+    if(this.listSchedule.length> 1){
     this.priceAscending()
     this.priceDecrease()
     this.qualityAcending()
     this.qualityDecrease()
+    }
+    
   }
 
   priceAscending(){

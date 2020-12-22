@@ -47,7 +47,7 @@ export class TicketManagementComponent implements OnInit {
             dialogConfig.disableClose = true
             dialogConfig.autoFocus = true
            
-            dialogConfig.width = "800px"
+            dialogConfig.width = "1000px"
             dialogConfig.data = {
               tickets
             }

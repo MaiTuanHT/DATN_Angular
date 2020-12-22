@@ -3,6 +3,10 @@
     cursor: pointer;
 }
 
+.image {
+    width: 43%;
+}
+
 .red {
     color: green;
 }

@@ -12,6 +12,9 @@
                         <th>Tuyến Đường</th>
                         <th>Ngày Đi</th>
                         <th>Giờ Khời Hành</th>
+                        <th>Trạng Thái Vé</th>
+                        <th>Thời Gian Đăng Ký</th>
+
                     </tr>
                 </thead>
                 <tbody *ngFor="let ticket of tickets">
@@ -21,6 +24,9 @@
                         <td>{{ticket.scheduleID.routeID.startLocation}} - {{ticket.scheduleID.routeID.stopLocation}}</td>
                         <td>{{ticket.scheduleID.date}}</td>
                         <td>{{ticket.scheduleID.busID.departureTime}}</td>
+                        <td *ngIf="ticket.status"> Đã Duyệt</td>
+                        <td *ngIf="!ticket.status">Chưa Duyệt</td>
+                        <td>{{ticket.createdAt}}</td>
                     </tr>
                 </tbody>
             </table>

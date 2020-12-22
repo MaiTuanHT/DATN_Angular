@@ -3,8 +3,9 @@
         <div class="row" *ngFor="let schedule of listSchedule">
             <div class="box-search shadow">
                 <div class="image">
-                    <a href="#">
-                        <img src="../../../assets/images/anhxekhach.jpg" alt="">
+                    <a>
+                        <!-- <img src="../../../assets/images/anhxekhach.jpg" alt=""> -->
+                        <img src="../../../assets/images/{{schedule.agencyID.author.email}}.jpg" onerror="this.onerror=null;this.src='../../../assets/images/anhxekhach.jpg'">
                     </a>
                 </div>
                 <div class="info">

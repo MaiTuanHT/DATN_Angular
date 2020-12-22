@@ -27,6 +27,8 @@ export class BookTicketComponent implements OnInit {
   ticket : any
   name : any
   userGet: any
+  tk: any
+
 
   bookForm = new FormGroup({
     phone : new FormControl(''),
@@ -76,6 +78,11 @@ export class BookTicketComponent implements OnInit {
         if(this.ticket){
           console.log(this.ticket)
           alert("Đăng kí vé thành công");
+          // console.log("dealine payment : ", )
+          if(this.schedule.agencyID.ticketPaymentDealine){
+            this.tk =  "Bạn vui lòng thanh toán trong vòng " + this.schedule.agencyID.ticketPaymentDealine + "h. Nếu không vé bạn sẽ bị hủy" 
+            alert(this.tk)
+          }
           this.router.navigateByUrl('');
          }
      }, error=>{

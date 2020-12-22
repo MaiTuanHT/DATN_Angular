@@ -2,7 +2,7 @@
     <h2 mat-dialog-title> Chi Tiết Nhà Xe {{agency.nameAgency}}</h2>
 
     <mat-dialog-content>
-        <img src="../../../assets/images/anhxekhach.jpg" alt="">
+        <img src="../../../assets/images/{{agency.author.email}}.jpg" onerror="this.onerror=null;this.src='../../../assets/images/anhxekhach.jpg'">
         <h5>Số Điện Thoại : {{agency.phoneNumber}}</h5>
         <div *ngIf="agency.totalRate" class="red">
             <span class="rate">{{agency.scoreRate}}<i class="fa fa-star" style="color: yellow;" aria-hidden="true"></i></span>
